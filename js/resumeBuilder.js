@@ -1,6 +1,4 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
+/*This code will build the resume, with the help of helper.js */
 
 // BIO:
 var bio = {
@@ -77,28 +75,64 @@ var education = {
   ],
   "onlineClasses": [
     {
-      "title": "Some Title",
-      "school": "Some School",
-      "dates": "Some Dates",
-      "url": "Some URL"
+      "title": "Frontend Developer Nanodegree",
+      "school": "Udacity",
+      "dates": "2016-Present",
+      "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     },
     {
-      "title": "Some Other",
-      "school": "Some Other School",
-      "dates": "Some Other Dates",
-      "url": "Some Other URL"
+      "title": "Machine Learning",
+      "school": "Stanford (Coursera)",
+      "dates": "2016",
+      "url": "https://www.coursera.org/learn/machine-learning"
+    },
+    {
+      "title": "Certificate in Ruby Programming",
+      "school": "University of Washington",
+      "dates": "2015",
+      "url": "https://www.pce.uw.edu/certificates/ruby-programming"
+    },
+    {
+      "title": "Relational Database Design and Data Modeling",
+      "school": "UCLA Extension",
+      "dates": "2014",
+      "url": "https://www.uclaextension.edu/search/publicCourseSearchDetails.do?method=load&courseId=160012"
+    },
+    {
+      "title": "Computer Science and Programming Using Python",
+      "school": "MITx (edx)",
+      "dates": "2014",
+      "url": "https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-9"
     }
   ]
 };
 //EDUCATION^
 
-// PROJECTS:
+// PROJECTS: MORE COMING SOON!
 var projects = {
   "projects": [
     {
+      "title": "Sample Project 3",
+      "dates": "2016",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "images": [
+        "images/197x148.gif",
+        "images/197x148.gif"
+      ]
+    },
+    {
+      "title": "Sample Project 2",
+      "dates": "2015",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "images": [
+        "images/197x148.gif",
+        "images/197x148.gif"
+      ]
+    },
+    {
       "title": "Sample Project 1",
       "dates": "2014",
-      "description": "Blahblahblahblah",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       "images": [
         "images/197x148.gif",
         "images/197x148.gif"
@@ -107,8 +141,6 @@ var projects = {
   ]
 };
 //PROJECTS^
-
-console.log(bio.contacts.location)
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -134,9 +166,9 @@ if(bio.skills.length > 0) {
   }
 }
 
-for(i in formattedContactInfo) {
-  $("#topContacts").append(formattedContactInfo[i]);
-  $("#footerContacts").append(formattedContactInfo[i]);
+for(contact in formattedContactInfo) {
+  $("#topContacts").append(formattedContactInfo[contact]);
+  $("#footerContacts").append(formattedContactInfo[contact]);
 }
 
 for (job in work.jobs) {
@@ -158,14 +190,15 @@ for (job in work.jobs) {
 projects.display = function() {
   for (project in projects.projects) {
     $("#projects").append(HTMLprojectStart);
+    
     var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
     $(".project-entry:last").append(formattedTitle);
 
     var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-    $(".projects-entry:last").append(formattedDates);
+    $(".project-entry:last").append(formattedDates);
 
     var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-    $(".projects-entry:last").append(formattedDates);
+    $(".project-entry:last").append(formattedDescription);
 
     if (projects.projects[project].images.length > 0) {
       for (image in projects.projects[project].images) {
