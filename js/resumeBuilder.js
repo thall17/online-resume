@@ -161,8 +161,8 @@ $("#header").append(formattedWelcomeMsg);
 if(bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 
-  for(i in bio.skills) {
-    $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
+  for(skill in bio.skills) {
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
   }
 }
 
