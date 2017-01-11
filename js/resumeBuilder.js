@@ -151,8 +151,15 @@ projects.display = function() {
 
 if (bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
-  
-}
+  bio.skills.forEach(function(val) {
+    console.log(val);
+    var formattedSkill = HTMLskills.replace("%data%", val);
+    $("#header").append(formattedSkill);
+  });
+};
+
+
+
 // EDUCATION^
 
 // HEADER:
