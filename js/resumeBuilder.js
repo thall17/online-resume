@@ -3,6 +3,7 @@ This is empty on purpose! Your code to build the resume will go here.
  */
 
 
+
 // BIO:
 
 var bio = {
@@ -13,12 +14,46 @@ var bio = {
    mobile: "858-472-6046",
    city: "Los Angeles"
  },
+ email: "timhall3000@gmail.com",
+ mobile: "858-472-6046",
+ github: "timhall1",
+ twitter: "@timhaverford",
+ location: "Los Angeles",
  pictureUrl: "images/Timothy_Hall_Photo.jpg",
+ blog: "www.google.com",
  welcomeMessage: "Welcome to my site!",
  skills: ["Web Dev", "Front End", "MSCS Candidate"]
 }
 
+
+
+// var awesomeThoughts = "I am Tim and I am AWESOME!"
+// console.log(awesomeThoughts);
+
+// var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
+// console.log (funThoughts);
+
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureUrl);
+var formattedMobile = HTMLmobile.replace("%data%", bio.mobile);
+var formattedEmail = HTMLemail.replace("%data%", bio.email);
+var formattedTwitter = HTMLtwitter.replace("%data%", bio.twitter);
+var formattedGitHub = HTMLgithub.replace("%data%", bio.github);
+var formattedBlog = HTMLblog.replace("%data%", bio.blog);
+var formattedLocation = HTMLblog.replace("%data%", bio.location);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedBioPic);
+$("#header").prepend(formattedName);
+$("#header").append(formattedMobile);
+$("#header").append(formattedEmail);
+
+
 // BIO^
+
 
 // WORK:
 
@@ -154,7 +189,7 @@ if (bio.skills.length > 0) {
   bio.skills.forEach(function(val) {
     console.log(val);
     var formattedSkill = HTMLskills.replace("%data%", val);
-    $("#header").append(formattedSkill);
+    $("#skills").append(formattedSkill);
   });
 };
 
@@ -162,29 +197,7 @@ if (bio.skills.length > 0) {
 
 // EDUCATION^
 
-// HEADER:
 
-$("#main").append(work["position"]);
-$("#main").append(education["name"]);
-
-// var awesomeThoughts = "I am Tim and I am AWESOME!"
-// console.log(awesomeThoughts);
-
-// var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-// console.log (funThoughts);
-
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureUrl);
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedBioPic);
-
-
-
-// HEADER^
 
 
 // LOG CLICKS:
@@ -196,6 +209,8 @@ $(document).click(function(loc) {
 });
 //LOG CLICKS^
 
+$("#main").append(work["position"]);
+$("#main").append(education["name"]);
 
 //MAP:
 $("#mapDiv").append(googleMap);
