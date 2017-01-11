@@ -135,14 +135,6 @@ var education = {
       "dates": "2017-Present",
       "url": "www.google.com"
     }
-  ],
-  "onlineCourses": [
-    {
-      "title": "JavaScript Syntax",
-      "school": "Udacity",
-      "dates": 2017,
-      "url": "http://www.udacity.com/course/ud804"
-    }
   ]
 };
 
@@ -155,7 +147,7 @@ var projects = {
       "dates": "2014",
       "description": "Blahblahblahblah",
       "images": [
-        "images/fry.jpg",
+        "images/197x148.gif",
         "images/197x148.gif"
       ]
     }
@@ -182,6 +174,7 @@ projects.display = function() {
     }
   }
 }
+projects.display();
 // PROJECTS ^
 
 if (bio.skills.length > 0) {
@@ -194,7 +187,19 @@ if (bio.skills.length > 0) {
 };
 
 
+// EDUCATION:
+education.display = function() {
+  for (school in education.schools) {
+    $("#education").append(HTMLschoolStart);
+    var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+    $(".education-entry:last").append(formattedName);
 
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+    $(".education-entry:last").append(formattedDegree);
+  }
+};
+
+education.display();
 // EDUCATION^
 
 
