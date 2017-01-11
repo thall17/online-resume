@@ -2,10 +2,7 @@
 This is empty on purpose! Your code to build the resume will go here.
  */
 
-
-
 // BIO:
-
 var bio = {
   "name": "Tim Hall",
   "role": "Software & Web Developer",
@@ -19,44 +16,9 @@ var bio = {
   "welcomeMessage": "I'm currently working as a Software Quality Engineer in Los Angeles, CA.",
   "skills": ["Ruby/Rails", "Python", "Software Development", "Frontend Development (in progress)", "Quality Engineering"]
 };
+//BIO^
 
-console.log(bio.contacts.location)
-
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
-var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-
-var formattedContactInfo = [];
-formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
-formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.github));
-formattedContactInfo.push(HTMLtwitter.replace("%data%", bio.contacts.twitter));
-formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
-
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedBioPic);
-$("#header").append(formattedWelcomeMsg);
-
-if(bio.skills.length > 0) {
-  $("#header").append(HTMLskillsStart);
-
-  for(i in bio.skills) {
-    $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
-  }
-}
-
-for(i in formattedContactInfo) {
-  $("#topContacts").append(formattedContactInfo[i]);
-  $("#footerContacts").append(formattedContactInfo[i]);
-}
-
-// BIO^
-
-
-// WORK:
-
+//WORK:
 var work = {
  jobs: [
    {
@@ -91,30 +53,7 @@ var work = {
  ],
  status: "Currently Employed"
 }
-
-for (job in work.jobs) {
-  $("#workExperience").append(HTMLworkStart);
-
-  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-  var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-  $(".work-entry:last").append(formattedEmployerTitle);
-
-  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-  $(".work-entry:last").append(formattedDates);
-
-  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-  $(".work-entry:last").append(formattedDescription);
-}
-
-
-// WORK^
-
-// work.position = "Software Quality Engineer";
-// work.employer = "Udacity";
-// work.years = "3";
-
+//WORK^
 
 // EDUCATION:
 var education = {
@@ -151,7 +90,7 @@ var education = {
     }
   ]
 };
-
+//EDUCATION^
 
 // PROJECTS:
 var projects = {
@@ -167,6 +106,54 @@ var projects = {
     }
   ]
 };
+//PROJECTS^
+
+console.log(bio.contacts.location)
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
+var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+
+var formattedContactInfo = [];
+formattedContactInfo.push(HTMLemail.replace("%data%", bio.contacts.email));
+formattedContactInfo.push(HTMLgithub.replace("%data%", bio.contacts.github));
+formattedContactInfo.push(HTMLtwitter.replace("%data%", bio.contacts.twitter));
+formattedContactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedBioPic);
+$("#header").append(formattedWelcomeMsg);
+
+if(bio.skills.length > 0) {
+  $("#header").append(HTMLskillsStart);
+
+  for(i in bio.skills) {
+    $("#skills").append(HTMLskills.replace("%data%", bio.skills[i]));
+  }
+}
+
+for(i in formattedContactInfo) {
+  $("#topContacts").append(formattedContactInfo[i]);
+  $("#footerContacts").append(formattedContactInfo[i]);
+}
+
+for (job in work.jobs) {
+  $("#workExperience").append(HTMLworkStart);
+
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+  $(".work-entry:last").append(formattedEmployerTitle);
+
+  var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  $(".work-entry:last").append(formattedDates);
+
+  var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+  $(".work-entry:last").append(formattedDescription);
+}
 
 projects.display = function() {
   for (project in projects.projects) {
@@ -189,19 +176,7 @@ projects.display = function() {
   }
 }
 projects.display();
-// PROJECTS ^
 
-// if (bio.skills.length > 0) {
-//   $("#header").append(HTMLskillsStart);
-//   bio.skills.forEach(function(val) {
-//     console.log(val);
-//     var formattedSkill = HTMLskills.replace("%data%", val);
-//     $("#skills").append(formattedSkill);
-//   });
-// };
-
-
-// EDUCATION:
 education.display = function() {
   for (school in education.schools) {
     $("#education").append(HTMLschoolStart);
@@ -231,9 +206,6 @@ education.display = function() {
     var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses[course].school);
     $(".education-entry:last").append(formattedTitle + formattedSchool);
 
-    
-    // $(".education-entry:last").append(formattedSchool);
-
     var formattedDates = HTMLonlineDates.replace("%data%", education.onlineClasses[course].dates);
     $(".education-entry:last").append(formattedDates);
 
@@ -244,10 +216,6 @@ education.display = function() {
 };
 
 education.display();
-// EDUCATION^
-
-
-
 
 // LOG CLICKS:
 $(document).click(function(loc) {
@@ -258,14 +226,6 @@ $(document).click(function(loc) {
 });
 //LOG CLICKS^
 
-
-
 //MAP:
 $("#mapDiv").append(googleMap);
 //MAP^
-
-
-// // education["name"] = "UCLA";
-
-
-
