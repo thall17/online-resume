@@ -6,20 +6,19 @@ This is empty on purpose! Your code to build the resume will go here.
 // BIO:
 
 var bio = {
- name: "Tim",
+ name: "Tim Hall",
  role: "Developer",
  contact: {
    email: "timhall3000@gmail.com",
    mobile: "858-472-6046",
    city: "Los Angeles"
  },
- pictureUrl: "Timothy_Hall_Photo.jpg",
+ pictureUrl: "images/Timothy_Hall_Photo.jpg",
  welcomeMessage: "Welcome to my site!",
  skills: ["Web Dev", "Front End", "MSCS Candidate"]
 }
 
 // BIO^
-
 
 // WORK:
 
@@ -59,8 +58,6 @@ var work = {
 }
 
 for (job in work.jobs) {
-  console.log("JOB:");
-  console.log(work.jobs[job]);
   $("#workExperience").append(HTMLworkStart);
 
   var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -172,9 +169,12 @@ $("#main").append(education["name"]);
 
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+var formattedBioPic = HTMLbioPic.replace("%data%", bio.pictureUrl);
 
 $("#header").prepend(formattedRole);
 $("#header").prepend(formattedName);
+$("#header").prepend(formattedBioPic);
+
 
 
 // HEADER^
@@ -191,7 +191,7 @@ $(document).click(function(loc) {
 
 
 //MAP:
-// $("#mapDiv").append(googleMap);
+$("#mapDiv").append(googleMap);
 //MAP^
 
 
