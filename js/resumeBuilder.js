@@ -161,12 +161,12 @@ $("#header").append(formattedWelcomeMsg);
 if(bio.skills.length > 0) {
   $("#header").append(HTMLskillsStart);
 
-  for(skill in bio.skills) {
+  for (skill in bio.skills) {
     $("#skills").append(HTMLskills.replace("%data%", bio.skills[skill]));
   }
 }
 
-for(contact in formattedContactInfo) {
+for (contact in formattedContactInfo) {
   $("#topContacts").append(formattedContactInfo[contact]);
   $("#footerContacts").append(formattedContactInfo[contact]);
 }
