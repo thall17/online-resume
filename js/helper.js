@@ -14,7 +14,6 @@ replace the %data% placeholder text you see in them.
 */
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
-
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
 var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
 var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
@@ -57,7 +56,8 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-
+console.log("googleMap:");
+console.log(googleMap);
 
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
@@ -97,13 +97,14 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
-
+console.log("var map");
+console.log(map);
 
 /*
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
-
+  console.log("Initialize Map!");
   var locations;
 
   var mapOptions = {
@@ -115,14 +116,13 @@ function initializeMap() {
   appended to #mapDiv in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
+  
 
   /*
   locationFinder() returns an array of every location string from the JSONs
   written for bio, education, and work.
   */
   function locationFinder() {
-
     // initializes an empty array
     var locations = [];
 
@@ -144,9 +144,10 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-
+    console.log("locations = ");
+    console.log(locations);
     return locations;
-  }
+  };
 
   /*
   createMapMarker(placeData) reads Google Places search results to create map pins.
@@ -239,11 +240,11 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
+window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+ map.fitBounds(mapBounds);
+});

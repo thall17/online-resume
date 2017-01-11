@@ -20,6 +20,8 @@ var bio = {
   "skills": ["Ruby/Rails", "Python", "Software Development", "Frontend Development (in progress)", "Quality Engineering"]
 };
 
+console.log(bio.contacts.location)
+
 var formattedName = HTMLheaderName.replace("%data%", bio.name);
 var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
 var formattedBioPic = HTMLbioPic.replace("%data%", bio.picture);
