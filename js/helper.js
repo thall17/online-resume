@@ -56,8 +56,6 @@ var HTMLonlineURL = '<br><a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
-console.log("googleMap:");
-console.log(googleMap);
 
 /*
 The Internationalize Names challenge found in the lesson Flow Control from JavaScript Basics requires you to create a function that will need this helper code to run. Don't delete! It hooks up your code to the button you'll be appending.
@@ -82,7 +80,7 @@ function logClicks(x,y) {
       y: y
     }
   );
-  console.log('x location: ' + x + '; y location: ' + y);
+  // console.log('x location: ' + x + '; y location: ' + y);
 }
 
 $(document).click(function(loc) {
@@ -97,14 +95,11 @@ See the documentation below for more details.
 https://developers.google.com/maps/documentation/javascript/reference
 */
 var map;    // declares a global map variable
-console.log("var map");
-console.log(map);
 
 /*
 Start here! initializeMap() is called when page is loaded.
 */
 function initializeMap() {
-  console.log("Initialize Map!");
   var locations;
 
   var mapOptions = {
@@ -144,8 +139,6 @@ function initializeMap() {
     work.jobs.forEach(function(job){
       locations.push(job.location);
     });
-    console.log("locations = ");
-    console.log(locations);
     return locations;
   };
 
