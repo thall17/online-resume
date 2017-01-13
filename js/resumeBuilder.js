@@ -46,7 +46,7 @@ var work = {
     }
   ],
   status: "Currently Employed"
-}
+};
 //WORK^
 // EDUCATION:
 var education = {
@@ -182,7 +182,7 @@ projects.display = function() {
       }
     }
   }
-}
+};
 projects.display();
 education.display = function() {
   for (var school = 0; school < education.schools.length; school++) {
@@ -205,8 +205,8 @@ education.display = function() {
     var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineClasses[course].title);
     var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses[course].school);
     $(".education-entry:last").append(formattedTitle + formattedSchool);
-    var formattedDates = HTMLonlineDates.replace("%data%", education.onlineClasses[course].dates);
-    $(".education-entry:last").append(formattedDates);
+    var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineClasses[course].dates);
+    $(".education-entry:last").append(formattedOnlineDates);
     var formattedURL = HTMLonlineURL.replace("%data%", education.onlineClasses[course].url);
     $(".education-entry:last").append(formattedURL);
   }
