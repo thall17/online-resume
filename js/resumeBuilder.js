@@ -13,7 +13,7 @@ var bio = {
   welcomeMessage: "I'm currently working as a Software Quality Engineer in Los Angeles, CA.",
   skills: ["Ruby/Rails", "Python", "Software Development", "Frontend Development (in progress)", "Quality Engineering"],
   biopic: "images/Timothy_Hall_Photo.jpg",
-  display: function(){
+  display: function() {
     var formattedName = HTMLheaderName.replace("%data%", bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     var formattedBioPic = HTMLbioPic.replace("%data%", bio.biopic);
@@ -25,8 +25,7 @@ var bio = {
     contactInfo.push(HTMLlocation.replace("%data%", bio.contacts.location));
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedName);
-    $("#header").append(formattedBioPic);
-    $("#header").append(formattedWelcomeMsg);
+    $("#header").append(formattedBioPic, formattedWelcomeMsg);
     if (bio.skills.length > 0) {
       $("#header").append(HTMLskillsStart);
       for (var skill = 0; skill < bio.skills.length; skill++) {
@@ -39,9 +38,7 @@ var bio = {
     }
   }
 };
-
 //BIO^
-
 // EDUCATION:
 var education = {
   schools: [{
@@ -50,7 +47,7 @@ var education = {
       degree: "BA",
       majors: ["Sociology"],
       dates: "2005-2009",
-      url: "www.google.com"
+      url: "http://www.ucla.edu/"
     },
     {
       name: "Georgia Tech",
@@ -58,7 +55,7 @@ var education = {
       degree: "MS",
       majors: ["CompSci"],
       dates: "2017-Present",
-      url: "www.google.com"
+      url: "https://www.omscs.gatech.edu/"
     }
   ],
   onlineClasses: [{
@@ -95,22 +92,22 @@ var education = {
   display: function() {
     for (var school = 0; school < education.schools.length; school++) {
       $("#education").append(HTMLschoolStart);
-      var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+      var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name).replace("#", education.schools[school].url);
       var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
       $(".education-entry:last").append(formattedName + formattedDegree);
       var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
       $(".education-entry:last").append(formattedDates);
       var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
       $(".education-entry:last").append(formattedLocation);
-      var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
-      $(".education-entry:last").append(formattedMajor);
+      var formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors.join());
+      $(".education-entry:last").append(formattedMajors);
     }
     if (education.onlineClasses.length > 0) {
       $("#education").append(HTMLonlineClasses);
     }
     for (var course = 0; course < education.onlineClasses.length; course++) {
       $("#education").append(HTMLschoolStart);
-      var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineClasses[course].title);
+      var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineClasses[course].title).replace("#", education.onlineClasses[course].url);
       var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineClasses[course].school);
       $(".education-entry:last").append(formattedTitle + formattedSchool);
       var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineClasses[course].dates);
@@ -121,7 +118,6 @@ var education = {
   }
 };
 //EDUCATION^
-
 //WORK:
 var work = {
   jobs: [{
@@ -130,7 +126,6 @@ var work = {
       location: "Los Angeles, CA, US",
       dates: "2014-Present",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      
     },
     {
       employer: "Beats by Dre",
@@ -138,7 +133,6 @@ var work = {
       location: "Los Angeles, CA, US",
       dates: "2013-2014",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      
     },
     {
       employer: "Beats by Dre",
@@ -146,7 +140,6 @@ var work = {
       location: "Los Angeles, CA, US",
       dates: "July 2013-Sept. 2013",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      
     },
     {
       employer: "Superfad",
@@ -154,10 +147,9 @@ var work = {
       location: "Los Angeles, CA, US",
       dates: "2011-2013",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      
     }
   ],
-  display: function(){
+  display: function() {
     for (var job = 0; job < work.jobs.length; job++) {
       $("#workExperience").append(HTMLworkStart);
       var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
@@ -170,14 +162,11 @@ var work = {
       $(".work-entry:last").append(formattedDescription);
     }
   }
-
 };
 //WORK^
-
 // PROJECTS: MORE COMING SOON!
 var projects = {
-  projects: [
-    {
+  projects: [{
       title: "Sample Project 3",
       dates: "2016",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -224,8 +213,6 @@ var projects = {
   }
 };
 //PROJECTS^
-
-education.display();
 // LOG CLICKS:
 $(document).click(function(loc) {
   var x = loc.pageX;
@@ -233,14 +220,12 @@ $(document).click(function(loc) {
   logClicks(x, y);
 });
 //LOG CLICKS^
-
 // DISPLAY FUNCTION CALLS
 bio.display();
 work.display();
 projects.display();
 education.display();
 // DISPLAY FUNCTION CALLS^
-
 //MAP:
 $("#mapDiv").append(googleMap);
 //MAP^
